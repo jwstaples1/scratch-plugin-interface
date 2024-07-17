@@ -1,5 +1,7 @@
+import BuilderTemplate from "./components/templates/BuilderTemplate"
+
 const Layout = () => {
-    return <></>;
+    return <BuilderTemplate/>;
 }
 
 export default Layout;
