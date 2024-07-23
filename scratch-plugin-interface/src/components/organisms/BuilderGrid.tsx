@@ -1,5 +1,7 @@
+import GridLines from "../atoms/GridLines";
+
 const BuilderGrid = () => {
-    return <div></div>
+    return <GridLines/>
 }
 
 export default BuilderGrid;
