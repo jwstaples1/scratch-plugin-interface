@@ -1,7 +1,7 @@
-import BuilderTemplate from "./components/templates/BuilderTemplate"
+import Builder from "./components/pages/Builder";
 
 const Layout = () => {
-    return <BuilderTemplate/>;
+    return <Builder/>;
 }
 
 export default Layout;
