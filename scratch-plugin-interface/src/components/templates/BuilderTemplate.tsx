@@ -1,3 +1,5 @@
+import "../../theme/templates.scss"
+
 export type BuilderTemplateProps = {
     components: {
         details?: JSX.Element;
