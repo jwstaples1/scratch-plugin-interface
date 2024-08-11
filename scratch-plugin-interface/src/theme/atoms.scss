@@ -7,7 +7,7 @@
 
 .gridLines::before,
 .gridLines::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
 
 .gridLines::before {
     background-image: linear-gradient(to bottom, #ddd 1px, transparent 1px);
-    background-size: 100% 30px; 
+    background-size: 100% 30px;
 }
 
 .gridLines::after {
