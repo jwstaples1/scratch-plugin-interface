@@ -1,39 +1,19 @@
 import { useContext } from 'react';
 import {
-    Editable,
     EditableProperty,
-    EditablePropertyType,
     propertyTypeToString,
 } from '../../model/Editable';
-import { BuilderContext, BuilderContextReducerActionType } from '../../state/context/BuilderContext';
+import {
+    BuilderContext,
+    BuilderContextReducerActionType,
+} from '../../state/context/BuilderContext';
 
 const PropertyEditor = () => {
-    const {editable, dispatch} = useContext(BuilderContext);
-
-    const mockEditable: Editable = {
-        name: 'TestEditable',
-        properties: [
-            {
-                name: 'Discrete Property',
-                type: EditablePropertyType.DISCRETE,
-                value: 1,
-            },
-            {
-                name: 'Continuous Property',
-                type: EditablePropertyType.CONTINUOUS,
-                value: 0.5,
-            },
-            {
-                name: 'String Property',
-                type: EditablePropertyType.STRING,
-                value: 'test value!',
-            },
-        ],
-    };
+    const { editable, dispatch } = useContext(BuilderContext);
 
     const renderProperty = (property: EditableProperty) => {
         return (
-            <li>
+            <li key={`${property.name}`}>
                 {`${property.name} (${propertyTypeToString(property.type)}): `}
                 <span
                     style={{ fontWeight: 'bold', textDecoration: 'underline' }}
@@ -53,7 +33,7 @@ const PropertyEditor = () => {
                 borderRight: '1px solid black',
             }}
         >
-            {!!editable ? (
+            {!!editable && (
                 <div>
                     Selected Editable:
                     <h3>{editable.name}</h3>
@@ -63,7 +43,7 @@ const PropertyEditor = () => {
                         )}
                     </ul>
                 </div>
-            ) : <button onClick={() => dispatch({type: BuilderContextReducerActionType.SELECT, data: mockEditable})}>Mock Editable</button>}
+            )}
         </div>
     );
 };
