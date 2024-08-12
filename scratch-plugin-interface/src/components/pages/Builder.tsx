@@ -1,18 +1,31 @@
-import BlockSelector from "../organisms/BlockSelector";
-import BuilderGrid from "../organisms/BuilderGrid";
-import Header from "../organisms/Header";
-import ProjectDetails from "../organisms/ProjectDetails";
-import BuilderTemplate, { BuilderTemplateProps } from "../templates/BuilderTemplate";
+import PropertyEditor from '../organisms/PropertyEditor';
+import BuilderGrid from '../organisms/BuilderGrid';
+import BuilderTemplate, {
+    BuilderTemplateProps,
+} from '../templates/BuilderTemplate';
+import { useReducer } from 'react';
+import {
+    BuilderContext,
+    BuilderContextReducer,
+} from '../../state/context/BuilderContext';
+import DraggableBlock from '../organisms/DraggableBlock';
 
 const Builder = () => {
-    const components: BuilderTemplateProps["components"] = {
-        header: <Header/>,
-        selector: <BlockSelector/>,
-        grid: <BuilderGrid/>,
-        details: <ProjectDetails/>
-    }
+    const [state, dispatch] = useReducer(BuilderContextReducer, {
+        dispatch: (action) => dispatch(action),
+    });
 
-    return <BuilderTemplate components={components}/>
-}
+    const components: BuilderTemplateProps['components'] = {
+        selector: <PropertyEditor />,
+        grid: <BuilderGrid />,
+    };
+
+    return (
+        <BuilderContext.Provider value={state}>
+            <DraggableBlock />
+            <BuilderTemplate components={components} />
+        </BuilderContext.Provider>
+    );
+};
 
 export default Builder;
