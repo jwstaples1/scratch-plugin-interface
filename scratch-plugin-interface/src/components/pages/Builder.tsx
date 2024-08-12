@@ -1,4 +1,4 @@
-import BlockSelector from '../organisms/BlockSelector';
+import PropertyEditor from '../organisms/PropertyEditor';
 import BuilderGrid from '../organisms/BuilderGrid';
 import BuilderTemplate, {
     BuilderTemplateProps,
@@ -6,7 +6,7 @@ import BuilderTemplate, {
 
 const Builder = () => {
     const components: BuilderTemplateProps['components'] = {
-        selector: <BlockSelector />,
+        selector: <PropertyEditor />,
         grid: <BuilderGrid />,
     };
 

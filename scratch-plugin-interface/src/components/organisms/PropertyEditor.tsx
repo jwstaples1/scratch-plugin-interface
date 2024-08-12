@@ -1,4 +1,4 @@
-const BlockSelector = () => {
+const PropertyEditor = () => {
     return (
         <div
             style={{
@@ -7,8 +7,10 @@ const BlockSelector = () => {
                 backgroundColor: 'lightgray',
                 borderRight: '1px solid black',
             }}
-        ></div>
+        >
+            <button>Add new Property</button>
+        </div>
     );
 };
 
-export default BlockSelector;
+export default PropertyEditor;
